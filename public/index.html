@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentic AI Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #reward {
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Agentic AI: CartPole Balancer</h1>
+    <button onclick="runAgent()">Run Agent</button>
+    <p id="reward">Reward: 0</p>
+    <script>
+        async function runAgent() {
+            const response = await fetch('http://localhost:3000/run-agent');
+            const data = await response.json();
+            document.getElementById('reward').textContent = `Reward: ${data.reward}`;
+        }
+    </script>
+</body>
+</html>
